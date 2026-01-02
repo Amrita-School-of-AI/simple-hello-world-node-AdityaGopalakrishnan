@@ -22,6 +22,12 @@ jobs:
         with:
           required-ros-distributions: humble
 
+      # After setting up ROS 2, before running the grader:
+      - name: Build ROS 2 Workspace
+        run: |
+        source /opt/ros/humble/setup.bash
+        colcon build
+
       # 3. Run the Grader
       # This runs our script. If it exits 0, student gets 100 points.
       # If it exits 1, student gets 0 points.
